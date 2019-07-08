@@ -3,6 +3,7 @@
   "description": "Package for generating HTML from an RDF ontology",
   "version": "0.0.1",
   "author": "Sjors de Valk <sjors@sjorsdevalk.nl>",
+  "bin": "./bin/run",
   "engines": {
     "node": ">=8.9.0"
   },
@@ -29,7 +30,8 @@
   },
   "devDependencies": {
     "@hapi/code": "5.3.1",
-    "@hapi/lab": "18.1.2"
+    "@hapi/lab": "18.1.2",
+    "pkg": "4.4.0"
   },
   "oclif": {
     "commands": "./lib/commands"

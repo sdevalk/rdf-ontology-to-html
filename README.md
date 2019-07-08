@@ -30,5 +30,8 @@ Or:
 ### Run tests
     npm test
 
+### Create executable
+    ./node_modules/.bin/pkg .
+
 ### Coding conventions
 https://hapijs.com/styleguide
