@@ -1,7 +1,7 @@
 {
   "name": "rdf-ontology-to-html",
   "description": "Package for generating HTML from an RDF ontology",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Sjors de Valk <sjors@sjorsdevalk.nl>",
   "bin": "./bin/run",
   "engines": {
