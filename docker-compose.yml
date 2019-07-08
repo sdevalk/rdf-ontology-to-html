@@ -1,0 +1,9 @@
+version: "3"
+services:
+  node:
+    build: .
+    user: "node"
+    restart: always
+    volumes:
+      - ".:/usr/src/app"
+      - "/usr/src/app/node_modules"

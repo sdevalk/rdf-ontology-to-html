@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+'use strict';
+
+(async () => {
+
+    await require('@oclif/command').run().catch(require('@oclif/errors/handle'));
+})();

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Name of the ontology</title>
+        <script type="text/javascript" src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
+        <script class="remove">
+            var respecConfig = {
+                specStatus: 'unofficial',
+                subtitle: 'Some ontology',
+                shortName: 'ontology',
+                publishDate: '2019-07-08',
+                editors: [
+                    {
+                        name: 'Example'
+                    }
+                ],
+            };
+        </script>
+    </head>
+    <body>
+        <section id="abstract">
+            <p>Abstract</p>
+        </section>
+        <section id="sotd"></section>
+        <section class="informative">
+            <h2>Specification</h2>
+            {{#each classes}}
+            <section>
+                <h3>Class: {{titleize (humanize label)}}</h3>
+                <table class="definition">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each elements}}
+                        <tr>
+                            <td class="prop"><a href="{{labelUri}}">{{titleize (humanize label)}}</a>{{#if language}} ({{language}}){{/if}}</td>
+                            <td>{{value}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{#each properties}}
+                <section>
+                    <h4>{{titleize (humanize label)}}</h4>
+                    <table class="definition">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each elements}}
+                            <tr>
+                                <td class="prop"><a href="{{labelUri}}">{{titleize (humanize label)}}</a>{{#if language}} ({{language}}){{/if}}</td>
+                                <td>{{value}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </section>
+                {{/each}}
+            </section>
+            {{/each}}
+        </section>
+    </body>
+</html>
