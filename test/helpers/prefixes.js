@@ -1,13 +1,12 @@
 'use strict';
 
 const Code = require('@hapi/code');
-const Http = require('http');
 const Lab = require('@hapi/lab');
 const Prefixes = require('../../lib/helpers/prefixes');
+const TestHelpers = require('../test-helpers');
 
 const { describe, it } = exports.lab = Lab.script();
 const expect = Code.expect;
-const internals = {};
 
 describe('Prefixes', { timeout: 10000 }, () => {
 
@@ -58,7 +57,7 @@ describe('Prefixes', { timeout: 10000 }, () => {
                 response.end();
             };
 
-            const server = await internals.getServer(handler);
+            const server = await TestHelpers.getServer(handler);
             const prefixes = new Prefixes();
 
             await expect(prefixes.loadFromUrl({ url: 'http://localhost:' + server.address().port })).to.reject('The content-type is not JSON compatible');
@@ -75,7 +74,7 @@ describe('Prefixes', { timeout: 10000 }, () => {
                 response.end();
             };
 
-            const server = await internals.getServer(handler);
+            const server = await TestHelpers.getServer(handler);
             const prefixes = new Prefixes();
 
             await expect(prefixes.loadFromUrl({ url: 'http://localhost:' + server.address().port })).to.reject('"value" must be an object');
@@ -92,7 +91,7 @@ describe('Prefixes', { timeout: 10000 }, () => {
                 response.end();
             };
 
-            const server = await internals.getServer(handler);
+            const server = await TestHelpers.getServer(handler);
             const prefixes = new Prefixes();
 
             await expect(prefixes.loadFromUrl({ url: 'http://localhost:' + server.address().port })).to.reject('child "someKey" fails because ["someKey" must be a string]');
@@ -132,13 +131,3 @@ describe('Prefixes', { timeout: 10000 }, () => {
         });
     });
 });
-
-internals.getServer = function (handler) {
-
-    const server = Http.createServer(handler);
-
-    return new Promise((resolve) => {
-
-        server.listen(0, () => resolve(server));
-    });
-};

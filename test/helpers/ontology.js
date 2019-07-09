@@ -1,14 +1,13 @@
 'use strict';
 
 const Code = require('@hapi/code');
-const Http = require('http');
 const Lab = require('@hapi/lab');
 const N3 = require('n3');
 const Ontology = require('../../lib/helpers/ontology');
+const TestHelpers = require('../test-helpers');
 
 const { describe, it } = exports.lab = Lab.script();
 const expect = Code.expect;
-const internals = {};
 
 describe('Ontology', { timeout: 10000 }, () => {
 
@@ -113,7 +112,7 @@ describe('Ontology', { timeout: 10000 }, () => {
                 });
             };
 
-            const server = await internals.getServer(handler);
+            const server = await TestHelpers.getServer(handler);
             const ontology = new Ontology();
 
             await ontology.loadFromUrl({ url: 'http://localhost:' + server.address().port });
@@ -151,13 +150,3 @@ describe('Ontology', { timeout: 10000 }, () => {
         });
     });
 });
-
-internals.getServer = function (handler) {
-
-    const server = Http.createServer(handler);
-
-    return new Promise((resolve) => {
-
-        server.listen(0, () => resolve(server));
-    });
-};
