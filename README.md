@@ -2,7 +2,7 @@ Package for generating HTML from an RDF ontology
 ==============================
 
 ## Installation
-    npm install git://github.com/sdevalk/rdf-ontology-to-html.git
+    npm install -g git://github.com/sdevalk/rdf-ontology-to-html.git
 
 ## Generate documentation
 The generator accepts the following arguments:
@@ -15,11 +15,11 @@ Argument | Data type | Required | Description
 
 Example calls:
 
-    bin/run docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html > ./example01.html
+    rdf-ontology-to-html docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html > ./example01.html
 
 Or:
 
-    bin/run docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html --debug > ./example01.html
+    rdf-ontology-to-html docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html --debug > ./example01.html
 
 ## Development
 
@@ -31,6 +31,10 @@ Or:
 
 ### Run tests
     npm test
+
+### Generate documentation
+    bin/run docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html > ./example01.html
+    bin/run docs:generate --ontologyUrl http://www.w3.org/ns/prov --templateFile ./templates/example01.html --debug > ./example01.html
 
 ### Create executable
     ./node_modules/.bin/pkg .
